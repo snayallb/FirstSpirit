@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.container{
+    border: 1px solid grey;
+}
+.accordion {
+  background-color: #efefef;
+  color: #717171;
+  cursor: pointer;
+  padding: 5px 52px 5px 20px;
+  width: 100%;
+  border: 1px solid grey;
+  text-align: left;
+  outline: none;
+  font-size: 16px;
+  transition: 0.4s;
+
+}
+
+.active{
+    background: white !important;
+    border:none;
+    color: grey;
+}
+.active, .accordion:hover {
+  background-color: #ccc; 
+}
+
+.panel {
+  padding: 25px 20px 40px 20px;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+}
+button.accordion:after {
+    border: 1px solid black;
+    width: 22px;
+    height: 22px; 
+    font-size: 16px;
+    color: #717171;
+    font-weight: bold;
+    content: '\002B';
+    float: right;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    margin:0 -40px 0 0;
+}
+button.accordion.active:after {
+    content: "\2212";
+}
+</style>
+</head>
+<body>
+
+<h2>Accordion</h2>
+<div class="container">
+<button class="accordion">United States - Lorem   sit amet, consecteturconsectetur adidpisLorem ipsum dolor sit ametametametam, consectetur adipisLorem ipsum dolor sit,  adipisLorem ipsum dolor sit amet, consect</button>
+<div class="panel">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+
+<button class="accordion">Canada</button>
+<div class="panel">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+
+<button class="accordion">International</button>
+<div class="panel">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+</div>
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+        
+    acc[i].addEventListener("click", function() {
+        //First, hide all panels to get a toggle effect:
+        
+        //Actual logic for toggle
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+            panel.style.display = "none";
+        } else {
+            panel.style.display = "block";
+        }
+    });
+}
+</script>
+
+</body>
+</html>

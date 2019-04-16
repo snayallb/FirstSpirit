@@ -1,0 +1,91 @@
+
+<!doctype html>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100px;
+        font-size: 16px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /** Code for the Tabs */
+    .tabs {
+        display:flex;
+        z-index: 100;
+    }
+    .tab {
+        flex:1;
+        border: 1px solid #0c5641;
+        font-size: 16px;
+        color: #0c5641;
+        display: flex;
+        align-items: center;
+        justify-content: center; 
+        padding: 5px 15px;
+    }
+    .is-tab-selected {
+        background: #0c5641;
+        color: white;
+       
+    }
+
+    /** Code for the content & heading */
+
+    #content{
+        z-index: -1;
+        position:relative;
+        bottom: 1px;
+        border-top: 1px solid #d0d0d0;
+    }
+    #content .heading{
+        margin: 25px 0;
+    }
+
+  
+</style>
+<html>
+    <head>
+        <title>Tab Bar - POC</title>
+
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />   
+    </head>
+    <body>
+        <div class="container">
+            <section class="tabs">
+                <div class="tab is-tab-selected">Section one</div>
+                <div class="tab">Section two</div>
+                <div class="tab">Section three</div>
+                <div class="tab">Section four</div>
+            </section>
+            <section id="content">
+                <h1 class="heading">Content goes  Here inside the tab</h1>
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            </section>
+        </div>
+    </body>
+</html>
+
+<script
+  src="https://code.jquery.com/jquery-3.4.0.min.js"
+  integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
+  crossorigin="anonymous"></script>
+
+<script>
+       /*!
+@name L.L.Bean Experimental Content
+@author Swarup Nayak
+@description Copyright (c) 2019 L.L.Bean Inc.
+@description Contains logic for tabs 
+@requires jQuery 3.4.0
+*/
+    var $tabs = $('.tabs .tab');
+    $tabs.click(function(event) {
+        var selectedClass = 'is-tab-selected';
+        $tabs.removeClass(selectedClass);
+        $(event.target).addClass(selectedClass);
+    });
+</script>
